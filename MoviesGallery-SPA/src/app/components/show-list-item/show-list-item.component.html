@@ -1,0 +1,34 @@
+<mat-card  fxFlex [style.background-color]="'white'" class="mat-elevation-z3">
+  <mat-card-header class="profile-card-header" [style.height.px]="profileimage.offsetWidth/1.5"  >
+      <mat-card-title >
+          <img #profileimage   [style.height.px]="profileimage.offsetWidth/1.5" mat-card-image src="{{ showItem.posterPath }}" />
+      </mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="column" fxLayoutAlign="space-between start">
+      <div fxFlex  fxLayout="row" class="artist-name"><span matTooltip="{{ showItem.title }}">{{ showItem.title }}</span></div> 
+      <div  fxFlex class="cont-detail" style="width:100%"  fxLayout="row" fxLayoutAlign="none start">
+          <Div  matTooltip="{{ showItem.voteAverage }}" class="cont-raiting" fxFlex="50%"  fxLayout="row" fxLayoutAlign="none start">
+              <mat-icon fxFlex="30%"  class="icon-fav" svgIcon="favorite"> </mat-icon>
+              <div fxFlex="25%"  fxLayout="row" class="font-fav"><span>{{ showItem.voteAverage }}</span></div>
+          </Div>
+          <Div  matTooltip="{{ showItem.originCountry | uppercase }}" class="cont-raiting" fxFlex="50%"  fxLayout="row" fxLayoutAlign="none start">
+              <mat-icon fxFlex="30%"  class="icon-earth" svgIcon="earth"> </mat-icon>
+              <div fxFlex="25%"  fxLayout="row" class="font-earth"><span>{{ showItem.originCountry | uppercase }}</span></div>
+          </Div>
+   
+      </div>
+      <div class="date"  fxLayout="row" fxLayoutAlign="none start">
+          <mat-icon fxFlex="20%" class="date-icon" svgIcon="calendar"> </mat-icon>
+          <div fxFlex="80%" class="date-text"  fxLayout="row" ><span>{{ showItem.releaseDate }}</span></div>
+      </div>
+      <hr class="line" >
+      <div fxFlex  fxLayout="row" class="actions">
+      
+          <button mat-raised-button color="accent" (click)="onNavigate()">
+              <mat-icon class="view-btn" svgIcon="arrow"> </mat-icon>
+              View
+          </button>
+
+      </div>
+  </mat-card-content>
+</mat-card>

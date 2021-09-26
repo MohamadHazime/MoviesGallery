@@ -1,0 +1,10 @@
+D:\My Projects\MoviesGallery\MoviesGallery.Core\bin\Debug\netcoreapp3.1\MoviesGallery.Core.deps.json
+D:\My Projects\MoviesGallery\MoviesGallery.Core\bin\Debug\netcoreapp3.1\MoviesGallery.Core.dll
+D:\My Projects\MoviesGallery\MoviesGallery.Core\bin\Debug\netcoreapp3.1\MoviesGallery.Core.pdb
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.csproj.AssemblyReference.cache
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.AssemblyInfoInputs.cache
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.AssemblyInfo.cs
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.csproj.CoreCompileInputs.cache
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.dll
+D:\My Projects\MoviesGallery\MoviesGallery.Core\obj\Debug\netcoreapp3.1\MoviesGallery.Core.pdb

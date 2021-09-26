@@ -1,0 +1,13 @@
+<button class="btn go-back" [routerLink]="['../']">Go Back</button>
+<hr>
+<div style="margin-top: 20px" class="artistscontainer"  fxLayout="row wrap" fxLayoutAlign="none start" >
+    <div fxFlex="23%" #profileimage *ngFor="let show of showList">
+      <app-show-list-item-card class="card-item" [showItem]="show"></app-show-list-item-card>
+    </div>
+</div>
+<hr>
+<div style="text-align: center;margin-bottom: 20px;">
+  <button *ngIf="page !== 1" class="btn pagination-btn" style="margin-right: 10px;" (click)="onLoadPage('previous')">Previous</button>
+  Page: {{ page }} of 250
+  <button *ngIf="page !== 250" class="btn pagination-btn" style="margin-left: 10px;" (click)="onLoadPage('next')">Next</button>
+</div>

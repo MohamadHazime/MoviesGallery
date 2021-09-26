@@ -1,0 +1,7 @@
+
+<app-show-list-item fxFlex="90%" [showItem]="showItem"></app-show-list-item>
+<div fxFlex="10%" fxLayout="column" fxLayoutAlign="none start"  >
+    <div fxLayout="row" class="type" style="width: 100%;"  >
+        <span *ngFor="let genre of showItem.genres">{{ genre }}</span>
+    </div>
+</div>

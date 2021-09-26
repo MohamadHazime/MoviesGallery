@@ -1,0 +1,26 @@
+import { Injectable } from "@angular/core";
+import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
+import { forkJoin, Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { MovieDetails } from "../models/movie-details";
+import { MoviesViewModel } from "../models/movies-view";
+import { TVShowDetails } from "../models/tv-show-details";
+import { MoviesService } from "../services/movies.service";
+import { TVShowsService } from "../services/tv-shows.service";
+
+@Injectable({
+    providedIn: 'root',
+})
+export class TvShowDetailsResolver implements Resolve<TVShowDetails> {
+    constructor(private tvShowService: TVShowsService) {}
+
+    resolve(route: ActivatedRouteSnapshot): Observable<TVShowDetails> {
+        let id = route.params['id'];
+
+        return this.tvShowService
+            .getTvShowById(id)
+            .pipe(map(tvShow => {
+                return tvShow;
+            }));
+    }
+}

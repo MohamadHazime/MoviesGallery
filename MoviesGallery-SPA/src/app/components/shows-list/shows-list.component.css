@@ -1,0 +1,25 @@
+.card-item {
+    margin-bottom: 10%;
+    margin-left: 10%;
+}
+
+.go-back {
+    margin-top: 10px;
+    margin-left: 35px;
+    background-color: rgb(117,201,237);
+    border: rgb(117,201,237);
+    color: white;
+}
+
+.pagination-btn {
+    background-color: rgb(117,201,237);
+    border: rgb(117,201,237);
+    color: white;
+    margin-right: 10px;
+    width: 90px;
+}
+
+hr {
+    margin-left: 35px;
+    margin-right: 35px;
+}

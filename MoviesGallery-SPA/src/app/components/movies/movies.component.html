@@ -1,0 +1,20 @@
+<div id="tag">
+    <button class="tag" [routerLink]="['action']">Action</button>
+    <button class="tag" [routerLink]="['comedy']">Comedy</button>
+    <button class="tag" [routerLink]="['drama']">Drama</button>
+</div>
+<hr>
+<div style="margin-left: 35px;">
+    <h3>Top Rated Action Movies</h3>
+</div>
+<app-top-rated-show [showTopRatedList]="moviesData.actionMovies"></app-top-rated-show>
+<hr>
+<div style="margin-left: 35px;">
+    <h3>Top Rated Comedy Movies</h3>
+</div>
+<app-top-rated-show [showTopRatedList]="moviesData.comedyMovies"></app-top-rated-show>
+<hr>
+<div style="margin-left: 35px;">
+    <h3>Top Rated Drama Movies</h3>
+</div>
+<app-top-rated-show [showTopRatedList]="moviesData.dramaMovies"></app-top-rated-show>
