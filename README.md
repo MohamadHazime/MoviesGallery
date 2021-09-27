@@ -18,4 +18,4 @@ Go to MoviesGallery-SPA and run:
 ***bash
 ng serve
 
-Go to browser and navigate to [https://localhost:4200/](https://localhost:4200/).
+Go to browser and navigate to [https://localhost:4200/](https://localhost:4200/)
