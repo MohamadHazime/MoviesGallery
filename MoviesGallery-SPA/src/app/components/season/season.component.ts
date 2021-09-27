@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Season } from 'src/app/models/season';
 
 @Component({

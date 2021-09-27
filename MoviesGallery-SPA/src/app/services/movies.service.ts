@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Show } from "../models/show";
@@ -17,24 +17,6 @@ export class MoviesService {
     dramaMoviesId = 18;
 
     constructor(private http: HttpClient, private queryParamsService: QueryParamsService) {}
-
-    getMovies(page: number) {
-        let params = this.queryParamsService.createMoviesQueryParams('movie/popular', page);
-
-        return this.http
-            .get<Show[]>(this.baseUrl + 'movies', {
-                params: params
-            }).pipe(map(movies => {
-                movies.forEach(movie => {
-                    if(movie.posterPath == null) {
-                        movie.posterPath = 'assets/images/no_image.png';
-                    } else {
-                        movie.posterPath = this.imageUrl + movie.posterPath;
-                    }
-                });
-                return movies;
-            }));
-    }
 
     getMovieById(id: number) {
         let params = this.queryParamsService.createMoviesQueryParams('movie');

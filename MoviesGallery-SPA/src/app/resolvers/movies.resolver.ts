@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
+import { Resolve } from "@angular/router";
 import { forkJoin, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { MoviesViewModel } from "../models/movies-view";
@@ -11,7 +11,7 @@ import { MoviesService } from "../services/movies.service";
 export class MoviesResolver implements Resolve<MoviesViewModel> {
     constructor(private moviesService: MoviesService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<MoviesViewModel> {
+    resolve(): Observable<MoviesViewModel> {
         let actionMoviesRequest = this.moviesService.getTopRatedMoviesByGenre(this.moviesService.actionMoviesId);
         let comedyMoviesRequest = this.moviesService.getTopRatedMoviesByGenre(this.moviesService.comedyMoviesId);
         let dramaMoviesRequest = this.moviesService.getTopRatedMoviesByGenre(this.moviesService.dramaMoviesId);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+
 import { Show } from 'src/app/models/show';
 import { PaginationService } from 'src/app/services/pagination.service';
 

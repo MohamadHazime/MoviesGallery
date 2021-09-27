@@ -11,8 +11,7 @@ import { TVShowsService } from "../services/tv-shows.service";
 export class TvShowsResolver implements Resolve<TvShowsModel> {
     constructor(private tvShowsService: TVShowsService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<TvShowsModel> {
-        // let tvShowsRequest = this.tvShowsService.getTvShows(1);
+    resolve(): Observable<TvShowsModel> {
         let actionAndAdventureTvShowsRequest = this.tvShowsService.getTopRatedTvShowsByGenre(this.tvShowsService.actionAndAdventureTvShowsId);
         let comedyTvShowsRequest = this.tvShowsService.getTopRatedTvShowsByGenre(this.tvShowsService.comedyTvShowsId);
         let dramaTvShowsRequest = this.tvShowsService.getTopRatedTvShowsByGenre(this.tvShowsService.dramaTvShowsId);

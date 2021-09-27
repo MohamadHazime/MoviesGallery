@@ -22,25 +22,6 @@ namespace MoviesGallery.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(
-            [FromHeader(Name = "api-key")] string api_key, 
-            [FromQuery(Name = "tv-shows-query")] string tv_shows_query, 
-            [FromQuery(Name = "page")] int page)
-        {
-            var queryParams = new QueryParams 
-            {   
-                Query = tv_shows_query,
-                Page = page
-            };
-
-            var tvShowsList = await _tvShowsService.GetAllAsync(api_key, queryParams);
-
-            var tvShowsListDTO = _mapper.Map<List<TVShow>, List<ShowDTO>>(tvShowsList);
-
-            return Ok(tvShowsListDTO);
-        }
-
-        [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetById(
             [FromHeader(Name = "api-key")] string api_key, 

@@ -22,25 +22,6 @@ namespace MoviesGallery.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(
-            [FromHeader(Name = "api-key")] string api_key, 
-            [FromQuery(Name = "movies-query")] string movies_query, 
-            [FromQuery(Name = "page")] int page)
-        {
-            var queryParams = new QueryParams 
-            {   
-                Query = movies_query,
-                Page = page
-            };
-
-            var moviesList = await _moviesService.GetAllAsync(api_key, queryParams);
-
-            var moviesListDTO = _mapper.Map<List<Movie>, List<ShowDTO>>(moviesList);
-
-            return Ok(moviesListDTO);
-        }
-
-        [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetById(
             [FromHeader(Name = "api-key")] string api_key, 

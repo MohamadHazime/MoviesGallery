@@ -12,6 +12,7 @@ export class MoviesListResolver implements Resolve<Show[]> {
     constructor(private moviesService: MoviesService, private router: Router) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Show[]> {
+        console.log("Test movies list")
         let categoryName = route.params['category-name'];
         let categoryId = 0;
 

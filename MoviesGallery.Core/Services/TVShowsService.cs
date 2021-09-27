@@ -11,35 +11,6 @@ namespace MoviesGallery.Core.Services
     {
         private static readonly RestClient _client = MyRestClient.GetRestClientObject();
 
-        public TVShowsService()
-        {
-            // _client = MyRestClient.GetRestClientObject();
-        }
-
-        public async Task<List<TVShow>> GetAllAsync(string apiKey, QueryParams queryParams)
-        {
-            var request = new RestRequest(queryParams.Query)
-                .AddParameter("api_key", apiKey)
-                .AddParameter("page", queryParams.Page);
-            var response = await _client.GetAsync<TVShowsResponse>(request);
-
-            var tvShows = response.Results;
-
-            var genresList = await TVShowsGenres.GetGenresList(apiKey);
-
-            foreach(var tvShow in tvShows)
-            {
-                tvShow.Genres = new List<string>();
-                foreach(var genreId in tvShow.GenreIds)
-                {
-                    var genre = genresList.Find((gnr) => gnr.Id == genreId);
-                    tvShow.Genres.Add(genre.Name);            
-                }
-            }
-
-            return tvShows;
-        }
-
         public async Task<List<TVShow>> GetByGenreAsync(string apiKey, QueryParams queryParams)
         {
             var request = new RestRequest(queryParams.Query)

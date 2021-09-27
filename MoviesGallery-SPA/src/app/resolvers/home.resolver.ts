@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
-import { forkJoin, Observable, of } from "rxjs";
+import { Resolve } from "@angular/router";
+import { forkJoin, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { HomeViewModel } from "../models/home-view";
 import { MoviesService } from "../services/movies.service";
@@ -12,7 +12,7 @@ import { TVShowsService } from "../services/tv-shows.service";
 export class HomeResolver implements Resolve<HomeViewModel> {
     constructor(private moviesService: MoviesService, private tvShowsService: TVShowsService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<HomeViewModel> {
+    resolve(): Observable<HomeViewModel> {
         let topRatedMovies = this.moviesService.getTopRatedMovies();
         let topRatedTvShows = this.tvShowsService.getTopRatedTvShows();
 
