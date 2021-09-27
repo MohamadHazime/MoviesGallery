@@ -5,17 +5,25 @@
 Clone the repository and open the folder in your IDE
 
 Go to MoviesGallery-SPA folder
-***bash cd MoviesGallery-SPA
+```bash 
+cd MoviesGallery-SPA
+```
 
 and run:
-***bash npm install
+```bash 
+npm install
+```
 
 ## Run
 
 Go to MoviesGallery and run:
-***bash dotnet run
+```bash 
+dotnet run
+```
 
 Go to MoviesGallery-SPA and run:
-***bash ng serve
+```bash 
+ng serve
+```
 
 Go to browser and navigate to [https://localhost:4200/](https://localhost:4200/)
