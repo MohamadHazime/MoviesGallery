@@ -26,4 +26,4 @@ Go to MoviesGallery-SPA and run:
 ng serve
 ```
 
-Go to browser and navigate to [https://localhost:4200/](https://localhost:4200/)
+Go to browser and navigate to [http://localhost:4200/](http://localhost:4200/)
