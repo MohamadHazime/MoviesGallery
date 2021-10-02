@@ -1,10 +1,7 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MoviesGallery.Core.Dtos;
-using MoviesGallery.Core.Models;
-using MoviesGallery.Core.Services;
+using MoviesGallery.Core.Queries;
 
 namespace MoviesGallery.API.Controllers 
 {
@@ -12,13 +9,11 @@ namespace MoviesGallery.API.Controllers
     [Route("api/[controller]")]
     public class TVShowsController : ControllerBase
     {
-        private readonly IShowsService<TVShow, TVShowDetails> _tvShowsService;
-        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public TVShowsController(IShowsService<TVShow, TVShowDetails> tvShowsService, IMapper mapper)
+        public TVShowsController(IMediator mediator)
         {
-            _tvShowsService = tvShowsService;
-            _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -28,16 +23,16 @@ namespace MoviesGallery.API.Controllers
             [FromQuery(Name = "tv-shows-query")] string tv_shows_query,
             int id)
         {
-            var queryParams = new QueryParams 
-            {   
-                Query = tv_shows_query + "/" + id,
+            var query = new GetTVShowDetailsQuery
+            {
+                ApiKey = api_key,
+                Query = tv_shows_query,
+                ShowId = id,
             };
 
-            var tvShow = await _tvShowsService.GetByIdAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var tvShowDTO = _mapper.Map<TVShowDetails, TVShowDetailsDTO>(tvShow);
-
-            return Ok(tvShowDTO);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -46,17 +41,16 @@ namespace MoviesGallery.API.Controllers
             [FromHeader(Name = "api-key")] string api_key, 
             [FromQuery(Name = "tv-shows-query")] string tv_shows_query)
         {
-            var queryParams = new QueryParams 
-            {   
+            var query = new GetTopRatedTVShowsQuery
+            {
+                ApiKey = api_key,
                 Query = tv_shows_query,
-                Page = 1
+                Page = 1,
             };
 
-            var tvShowsList = await _tvShowsService.GetTopRatedAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var tvShowsListDTO = _mapper.Map<List<TVShow>, List<ShowDTO>>(tvShowsList);
-
-            return Ok(tvShowsListDTO);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -67,18 +61,17 @@ namespace MoviesGallery.API.Controllers
             [FromQuery(Name = "page")] int page,
             int id)
         {
-            var queryParams = new QueryParams 
-            {   
+            var query = new GetTVShowsByGenreQuery
+            {
+                ApiKey = api_key,
                 Query = tv_shows_query,
                 Page = page,
-                GenreId = id
+                GenreId = id,
             };
 
-            var tvShowsList = await _tvShowsService.GetByGenreAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var tvShowsListDTO = _mapper.Map<List<TVShow>, List<ShowDTO>>(tvShowsList);
-
-            return Ok(tvShowsListDTO);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -88,18 +81,17 @@ namespace MoviesGallery.API.Controllers
             [FromQuery(Name = "tv-shows-query")] string tv_shows_query,
             int id)
         {
-            var queryParams = new QueryParams() 
+            var query = new GetTopRatedTVShowsByGenreQuery
             {
+                ApiKey = api_key,
                 Query = tv_shows_query,
+                Page = 1,
                 GenreId = id,
-                Page = 1
             };
 
-            var tvShowsList = await _tvShowsService.GetTopRatedByGenreAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var tvShowsListDTO = _mapper.Map<List<TVShow>, List<ShowDTO>>(tvShowsList);
-
-            return Ok(tvShowsListDTO);
+            return Ok(result);
         }
     }
 }

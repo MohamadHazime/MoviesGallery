@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "v4Raai3DHlxW2naxdVr1rCFKLRGp4pYYIxHXai4JinDuYbgu1FQT1KOCfgNaj5a1qIE/CGKI2iATp6xHUxamZw==",
+  "dgSpecHash": "iC2hwLTfqAFp0R8+oq8HkaKOjgehW4T0Q4coWaA5qdKJ0c9XIAb94AgnFGN4Pf0CtnUAX39A84sgtwhEnSs0Eg==",
   "success": true,
   "projectFilePath": "D:\\My Projects\\MoviesGallery\\MoviesGallery.Core\\MoviesGallery.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
     "C:\\Users\\Mohammad Hazimeh\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],

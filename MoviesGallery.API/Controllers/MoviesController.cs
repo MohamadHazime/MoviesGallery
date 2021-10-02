@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MoviesGallery.Core.Dtos;
-using MoviesGallery.Core.Models;
-using MoviesGallery.Core.Services;
+using MoviesGallery.Core.Queries;
 
 namespace MoviesGallery.API.Controllers 
 {
@@ -12,13 +11,11 @@ namespace MoviesGallery.API.Controllers
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly IShowsService<Movie, MovieDetails> _moviesService;
-        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public MoviesController(IShowsService<Movie, MovieDetails> moviesService, IMapper mapper)
+        public MoviesController(IMediator mediator)
         {
-            _moviesService = moviesService;
-            _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -28,16 +25,16 @@ namespace MoviesGallery.API.Controllers
             [FromQuery(Name = "movies-query")] string movies_query,  
             int id)
         {
-            var queryParams = new QueryParams 
-            {   
-                Query = movies_query + "/" + id,
+            var query = new GetMovieDetailsQuery
+            {
+                ApiKey = api_key,
+                Query = movies_query,
+                ShowId = id,
             };
 
-            var movie = await _moviesService.GetByIdAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var movieDTO = _mapper.Map<MovieDetails, MovieDetailsDTO>(movie);
-
-            return Ok(movieDTO);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -46,17 +43,16 @@ namespace MoviesGallery.API.Controllers
             [FromHeader(Name = "api-key")] string api_key, 
             [FromQuery(Name = "movies-query")] string movies_query)
         {
-            var queryParams = new QueryParams 
-            {   
+            var query = new GetTopRatedMoviesQuery
+            {
+                ApiKey = api_key,
                 Query = movies_query,
                 Page = 1
             };
 
-            var moviesList = await _moviesService.GetTopRatedAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var moviesListDTO = _mapper.Map<List<Movie>, List<ShowDTO>>(moviesList);
-
-            return Ok(moviesListDTO);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -67,18 +63,17 @@ namespace MoviesGallery.API.Controllers
             [FromQuery(Name = "page")] int page,
             int id)
         {
-            var queryParams = new QueryParams 
-            {   
+            var query = new GetMoviesByGenreQuery
+            {
+                ApiKey = api_key,
                 Query = movies_query,
                 Page = page,
-                GenreId = id
+                GenreId = id,
             };
 
-            var moviesList = await _moviesService.GetByGenreAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var moviesListDTO = _mapper.Map<List<Movie>, List<ShowDTO>>(moviesList);
-
-            return Ok(moviesListDTO);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -88,18 +83,17 @@ namespace MoviesGallery.API.Controllers
             [FromQuery(Name = "movies-query")] string movies_query,
             int id)
         {
-            var queryParams = new QueryParams() 
+            var query = new GetTopRatedMoviesByGenreQuery
             {
+                ApiKey = api_key,
                 Query = movies_query,
+                Page = 1,
                 GenreId = id,
-                Page = 1
             };
 
-            var moviesList = await _moviesService.GetTopRatedByGenreAsync(api_key, queryParams);
+            var result = await _mediator.Send(query);
 
-            var moviesListDTO = _mapper.Map<List<Movie>, List<ShowDTO>>(moviesList);
-
-            return Ok(moviesListDTO);
+            return Ok(result);
         }
     }
 }
