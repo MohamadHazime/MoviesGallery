@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using MoviesGallery.Core.Dtos;
 using MoviesGallery.Core.Models;
 using MoviesGallery.Core.Queries;
 using MoviesGallery.Core.Services;
+using MoviesGallery.Core.Validators;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ namespace MoviesGallery.Core.Handlers
         private readonly IShowsService<Movie, MovieDetails> _moviesService;
         private readonly IMapper _mapper;
 
-        public GetTopRatedMoviesHandler(IShowsService<Movie, MovieDetails> moviesService, IMapper mapper)
+        public GetTopRatedMoviesHandler(IShowsService<Movie, MovieDetails> moviesService, IMapper mapper) 
         {
             _moviesService = moviesService;
             _mapper = mapper;

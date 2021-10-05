@@ -11,7 +11,6 @@ D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\Microsoft.OpenAp
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\My Projects\MoviesGallery\MoviesGallery.API\obj\Debug\net5.0\MoviesGallery.API.csproj.AssemblyReference.cache
 D:\My Projects\MoviesGallery\MoviesGallery.API\obj\Debug\net5.0\MoviesGallery.API.GeneratedMSBuildEditorConfig.editorconfig
 D:\My Projects\MoviesGallery\MoviesGallery.API\obj\Debug\net5.0\MoviesGallery.API.AssemblyInfoInputs.cache
 D:\My Projects\MoviesGallery\MoviesGallery.API\obj\Debug\net5.0\MoviesGallery.API.AssemblyInfo.cs
@@ -34,3 +33,7 @@ D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\AutoMapper.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\MediatR.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\FluentValidation.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\obj\Debug\net5.0\MoviesGallery.API.csproj.AssemblyReference.cache

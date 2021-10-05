@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,9 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MoviesGallery.Core.Extensions;
 using MoviesGallery.Core.Helpers;
 using MoviesGallery.Core.Models;
+using MoviesGallery.Core.PipelineBehaviours;
 using MoviesGallery.Core.Services;
+using MoviesGallery.Core.Validators;
 
 namespace MoviesGallery.API
 {
@@ -30,6 +38,7 @@ namespace MoviesGallery.API
             services.AddSingleton<IShowsService<TVShow, TVShowDetails>, TVShowsService>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MoviesGallery.API", Version = "v1" });
@@ -40,6 +49,11 @@ namespace MoviesGallery.API
                 typeof(IShowsService<TVShow, TVShowDetails>).Assembly,
                 typeof(IShowsService<Movie, MovieDetails>).Assembly
             );
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
+
+            services.AddValidatorsFromAssembly(typeof(GetTopRatedMoviesQueryValidator).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +65,8 @@ namespace MoviesGallery.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MoviesGallery.API v1"));
             }
+
+            app.UseFluentValidationExceptionHandler();
 
             // app.UseHttpsRedirection();
 

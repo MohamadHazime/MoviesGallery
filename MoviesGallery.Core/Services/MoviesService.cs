@@ -9,6 +9,11 @@ namespace MoviesGallery.Core.Services
     {
         private static readonly RestClient _client = MyRestClient.GetRestClientObject();
 
+        private List<string> moviesTest = new List<string>
+        {
+            "Movie 1",
+        };
+
         public async Task<List<Movie>> GetByGenreAsync(string apiKey, QueryParams queryParams)
         {
             var request = new RestRequest(queryParams.Query)
