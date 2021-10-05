@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MoviesGallery.Core.Validators.TVShows
+namespace MoviesGallery.Core.Validators
 {
     public class GetTopRatedTVShowsByGenreQueryValidator : AbstractValidator<GetTopRatedTVShowsByGenreQuery>
     {

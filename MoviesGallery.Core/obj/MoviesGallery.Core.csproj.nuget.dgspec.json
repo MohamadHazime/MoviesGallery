@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.13.1, )"
+            },
             "RestSharp": {
               "target": "Package",
               "version": "[106.12.0, )"

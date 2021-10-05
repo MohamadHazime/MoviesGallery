@@ -37,3 +37,15 @@ D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\FluentValidation
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 D:\My Projects\MoviesGallery\MoviesGallery.API\obj\Debug\net5.0\MoviesGallery.API.csproj.AssemblyReference.cache
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\DnsClient.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\MongoDB.Bson.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\MongoDB.Driver.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\SharpCompress.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\runtimes\win\native\snappy64.dll
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
+D:\My Projects\MoviesGallery\MoviesGallery.API\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll

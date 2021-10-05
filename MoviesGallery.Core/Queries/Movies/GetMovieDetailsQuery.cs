@@ -1,6 +1,8 @@
-﻿namespace MoviesGallery.Core.Queries
+﻿using MoviesGallery.Core.Dtos;
+
+namespace MoviesGallery.Core.Queries
 {
-    public class GetMovieDetailsQuery : GetShowDetailsQuery
+    public class GetMovieDetailsQuery : GetShowDetailsQuery<MovieDetailsDTO>
     {
     }
 }

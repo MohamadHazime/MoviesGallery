@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MoviesGallery.Core.Handlers
 {
-    public class GetTVShowDetailsHandler : IRequestHandler<GetTVShowDetailsQuery, ShowDetailsDTO>
+    public class GetTVShowDetailsHandler : IRequestHandler<GetTVShowDetailsQuery, TVShowDetailsDTO>
     {
         private readonly IShowsService<TVShow, TVShowDetails> _tvShowsService;
         private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ namespace MoviesGallery.Core.Handlers
             _mapper = mapper;
         }
 
-        public async Task<ShowDetailsDTO> Handle(GetTVShowDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<TVShowDetailsDTO> Handle(GetTVShowDetailsQuery request, CancellationToken cancellationToken)
         {
             var queryParams = new QueryParams
             {

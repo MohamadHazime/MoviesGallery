@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using MoviesGallery.Core.Commands;
 using MoviesGallery.Core.Queries;
 
 namespace MoviesGallery.API.Controllers 
@@ -33,6 +34,13 @@ namespace MoviesGallery.API.Controllers
             };
 
             var result = await _mediator.Send(query);
+
+            var command = new AddMovieDetailsCommand
+            {
+                ShowDetails = result
+            };
+
+            await _mediator.Send(command);
 
             return Ok(result);
         }
@@ -72,6 +80,13 @@ namespace MoviesGallery.API.Controllers
             };
 
             var result = await _mediator.Send(query);
+
+            var command = new AddMoviesListCommand
+            {
+                Movies = result
+            };
+
+            await _mediator.Send(command);
 
             return Ok(result);
         }

@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MoviesGallery.Core.Configurations;
+using MoviesGallery.Core.Dtos;
 using MoviesGallery.Core.Extensions;
 using MoviesGallery.Core.Helpers;
 using MoviesGallery.Core.Models;
@@ -31,11 +33,16 @@ namespace MoviesGallery.API
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {  
+        {
+            services.Configure<MoviesDbConfig>(Configuration);
+
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
             services.AddSingleton<IShowsService<Movie, MovieDetails>, MoviesService>();
             services.AddSingleton<IShowsService<TVShow, TVShowDetails>, TVShowsService>();
+            services.AddSingleton<IMongoService, MongoService>();
+            services.AddSingleton<IMongoShowsService<MovieDetailsDTO>, MongoMoviesService>();
+            services.AddSingleton<IMongoShowsService<TVShowDetailsDTO>, MongoTVShowsService>();
 
             services.AddControllers();
 
@@ -47,7 +54,9 @@ namespace MoviesGallery.API
             services.AddMediatR(
                 Assembly.GetExecutingAssembly(),
                 typeof(IShowsService<TVShow, TVShowDetails>).Assembly,
-                typeof(IShowsService<Movie, MovieDetails>).Assembly
+                typeof(IShowsService<Movie, MovieDetails>).Assembly,
+                typeof(IMongoShowsService<MovieDetailsDTO>).Assembly,
+                typeof(IMongoShowsService<TVShowDetailsDTO>).Assembly
             );
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
