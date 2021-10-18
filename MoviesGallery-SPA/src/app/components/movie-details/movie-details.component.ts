@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
 
 import { MovieDetails } from 'src/app/models/movie-details';
 
@@ -12,16 +11,14 @@ import { MovieDetails } from 'src/app/models/movie-details';
 export class MovieDetailsComponent implements OnInit {
   movieDetails!: MovieDetails
 
-  constructor(private route: ActivatedRoute, private location: Location) { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       this.movieDetails = data[0];
     });
-  }
-
-  onGoBack() {
-    this.location.back();
   }
 
 }

@@ -13,13 +13,16 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { RouterModule } from "@angular/router";
 
+import { AddReviewComponent } from "../components/add-review/add-review.component";
 import { FooterComponent } from "../components/footer/footer.component";
 import { HeaderComponent } from "../components/header/header.component";
 import { ProductionCompanyComponent } from "../components/production-company/production-company.component";
+import { ShowDetailsComponent } from "../components/show-details/show-details.component";
 import { ShowListItemCardComponent } from "../components/show-list-item-card/show-list-item-card.component";
 import { ShowListItemComponent } from "../components/show-list-item/show-list-item.component";
 import { ShowsListComponent } from "../components/shows-list/shows-list.component";
 import { TopRatedShowComponent } from "../components/top-rated-show/top-rated-show.component";
+import { PlaceholderDirective } from "../directives/placeholder.directive";
 
 @NgModule({
     declarations: [
@@ -30,6 +33,9 @@ import { TopRatedShowComponent } from "../components/top-rated-show/top-rated-sh
         ShowsListComponent,
         TopRatedShowComponent,
         ProductionCompanyComponent,
+        AddReviewComponent,
+        ShowDetailsComponent,
+        PlaceholderDirective,
     ],
     imports: [
         RouterModule,
@@ -55,6 +61,8 @@ import { TopRatedShowComponent } from "../components/top-rated-show/top-rated-sh
         ShowsListComponent,
         TopRatedShowComponent,
         ProductionCompanyComponent,
+        AddReviewComponent,
+        ShowDetailsComponent,
         CommonModule,
         MatPaginatorModule,
         MatIconModule,
@@ -68,6 +76,7 @@ import { TopRatedShowComponent } from "../components/top-rated-show/top-rated-sh
         MatFormFieldModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
+        PlaceholderDirective,
     ]
 })
 export class SharedModule {}

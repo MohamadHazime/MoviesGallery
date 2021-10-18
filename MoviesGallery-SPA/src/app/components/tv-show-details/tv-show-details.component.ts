@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
 
 import { TVShowDetails } from 'src/app/models/tv-show-details';
 
@@ -11,17 +10,15 @@ import { TVShowDetails } from 'src/app/models/tv-show-details';
 })
 export class TvShowDetailsComponent implements OnInit {
   tvShowDetails!: TVShowDetails
-
-  constructor(private route: ActivatedRoute, private location: Location) { }
+  
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       this.tvShowDetails = data[0];
     })
-  }
-
-  onGoBack() {
-    this.location.back();
   }
 
 }

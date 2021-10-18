@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = MoviesGallery.API
-build_property.ProjectDir = d:\My Projects\MoviesGallery\MoviesGallery.API\
+build_property.ProjectDir = D:\My Projects\MoviesGallery\MoviesGallery.API\

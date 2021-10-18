@@ -10,16 +10,15 @@ export class PaginationService {
 
     constructor(
         private moviesService: MoviesService,
-        private tvShowsService: TVShowsService
+        private tvShowsService: TVShowsService,
     ) {}
 
     loadPage(page: number, route: ActivatedRoute) {
-        let type = '';
+        let type = route.snapshot.data[0].type;
         let categoryName = '';
 
         route.url.subscribe(data => {
-            type = data[0].path;
-            categoryName = data[1].path;
+            categoryName = data[0].path;
         });
 
         let categoryId = 0;

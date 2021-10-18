@@ -1,0 +1,59 @@
+<button class="btn go-back" (click)="onGoBack()">Go Back</button>
+<hr style="margin-left: 35px;margin-right: 35px;">
+
+<div class="column" style="position: relative;">
+    <div class="row">
+        <div class="backdrop" [style.background-image]="'url(' + showDetails.backdropPath + ')'">
+        </div>
+        <div class="col-sm-4 poster" [style.background-image]="'url(' + showDetails.posterPath + ')'">
+        </div>
+        <div class="container details" style="margin-top: 50px;position: relative;">
+            <h3>{{ showDetails.title }}</h3>
+            <div id="tag">
+                <a *ngFor="let genre of showDetails.genres" class="btn tag">{{ genre.name }}</a>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <mat-icon fxFlex="30%"  class="icon-fav" svgIcon="favorite"> </mat-icon>
+                    <h6 style="margin-top: 4px;">{{ showDetails.voteAverage }}</h6>
+                </div>
+                <div class="col-sm-3">
+                    <mat-icon fxFlex="30%" class="date-icon" svgIcon="calendar"> </mat-icon>
+                    <h6 style="margin-top: 4px;">{{ showDetails.releaseDate }}</h6>
+                </div>
+                <div class="col-sm-3">
+                    <mat-icon fxFlex="30%"  class="icon-earth" svgIcon="earth"> </mat-icon>
+                    <h6 style="margin-top: 4px;">{{ showDetails.originCountry | uppercase}}</h6>
+                </div>
+            </div>
+            <div style="margin-right: 50px;">
+                <hr style="border-top: thin solid black;">
+                <p>{{ showDetails.overview }}</p>
+            </div>
+            <button class="btn add-review" (click)="onAddReviewPressed()">Add Review</button>
+            <ng-template appPlaceholder></ng-template>
+        </div>
+    </div>
+    <div style="margin-left: 50px;margin-right: 90px;margin-bottom: 30px;">
+        <ng-container *ngIf="showDetails.productionCompanies.length > 0">
+            <hr style="border-top: thin solid black;">
+            <h2>Production Companies</h2>
+            <br>
+            <div class="row">
+                <app-production-company 
+                    *ngFor="let prodCompany of showDetails.productionCompanies" 
+                    style="position: relative;"
+                    [prodCompanyItem]="prodCompany"
+                    class="col-sm-4"
+                ></app-production-company>
+            </div>
+        </ng-container>
+        <br>
+        <ng-template
+            *ngIf="showDetails.seasons?.length > 0"
+            [ngTemplateOutlet]="seasonsTemplateRef"
+            [ngTemplateOutletContext]="{ $implicit: showDetails.seasons }">
+        </ng-template>
+    </div>
+</div>
+

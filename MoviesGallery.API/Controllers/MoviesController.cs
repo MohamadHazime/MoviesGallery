@@ -35,12 +35,12 @@ namespace MoviesGallery.API.Controllers
 
             var result = await _mediator.Send(query);
 
-            var command = new AddMovieDetailsCommand
-            {
-                ShowDetails = result
-            };
+            // var command = new AddMovieDetailsCommand
+            // {
+            //     ShowDetails = result
+            // };
 
-            await _mediator.Send(command);
+            // await _mediator.Send(command);
 
             return Ok(result);
         }

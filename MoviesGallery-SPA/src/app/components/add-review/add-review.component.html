@@ -1,0 +1,52 @@
+<hr style="margin-right: 35px;border-top: thin solid black;">
+<div class="backdrop" (click)="onClose()"></div>
+<div class="row my-form box">
+    <div class="col-md-12">
+        <form [formGroup]="reviewForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                <span
+                    *ngIf="!reviewFormControl.firstName.valid && reviewFormControl.firstName.touched"
+                    class="help-block">
+                    <span *ngIf="reviewFormControl.firstName.errors?.required">First Name field is required!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                <span
+                    *ngIf="!reviewFormControl.lastName.valid && reviewFormControl.lastName.touched"
+                    class="help-block">
+                    <span *ngIf="reviewFormControl.lastName.errors?.required">Last Name field is required!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control" formControlName="email">
+                <span
+                    *ngIf="!reviewFormControl.email.valid && reviewFormControl.email.touched"
+                    class="help-block">
+                    <span *ngIf="reviewFormControl.email.errors?.blockedEmail">This email is blocked!</span>
+                    <span *ngIf="reviewFormControl.email.errors?.required">Email field is required!</span>
+                    <span *ngIf="reviewFormControl.email.errors?.email">Enter a valid email!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="vote">Vote</label>
+                <input type="number" min="1" max="10" step="0.5" id="vote" class="form-control" formControlName="vote">
+                <span
+                    *ngIf="!reviewFormControl.vote.valid && reviewFormControl.vote.touched"
+                    class="help-block">
+                    <span *ngIf="reviewFormControl.vote.errors?.required">Vote field is required!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea id="comment" rows="3" class="form-control" formControlName="comment"></textarea>
+            </div>
+        </form>
+        <button [disabled]="!reviewForm.valid" class="btn my-btn" type="submit" (click)="onSubmitReview()">Submit Review</button>
+        <button class="btn my-btn btn-close" type="submit" (click)="onClose()">Close</button>
+    </div>
+</div>

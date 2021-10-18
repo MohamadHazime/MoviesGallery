@@ -8,11 +8,10 @@ import { MoviesService } from "../services/movies.service";
 @Injectable({
     providedIn: 'root',
 })
-export class MoviesListResolver implements Resolve<Show[]> {
+export class MoviesListResolver implements Resolve<{'list': Show[], 'type': string}> {
     constructor(private moviesService: MoviesService, private router: Router) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<Show[]> {
-        console.log("Test movies list")
+    resolve(route: ActivatedRouteSnapshot): Observable<{'list': Show[], 'type': string}> {
         let categoryName = route.params['category-name'];
         let categoryId = 0;
 
@@ -36,7 +35,7 @@ export class MoviesListResolver implements Resolve<Show[]> {
 
         return this.moviesService.getMoviesByGenre(categoryId, 1)
             .pipe(map(movies => {
-                return movies;
+                return {'list': movies, 'type': 'movies'};
             }));
     }
 }

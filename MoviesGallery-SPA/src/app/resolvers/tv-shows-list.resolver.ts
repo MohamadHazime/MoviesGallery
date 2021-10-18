@@ -8,10 +8,10 @@ import { TVShowsService } from "../services/tv-shows.service";
 @Injectable({
     providedIn: 'root',
 })
-export class TvShowsListResolver implements Resolve<Show[]> {
+export class TvShowsListResolver implements Resolve<{'list': Show[], 'type': string}> {
     constructor(private tvShowsService: TVShowsService, private router: Router) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<Show[]> {
+    resolve(route: ActivatedRouteSnapshot): Observable<{'list': Show[], 'type': string}> {
         let categoryName = route.params['category-name'];
         let categoryId = 0;
 
@@ -35,7 +35,7 @@ export class TvShowsListResolver implements Resolve<Show[]> {
 
         return this.tvShowsService.getTvShowsByGenre(categoryId, 1)
             .pipe(map(tvShows => {
-                return tvShows;
+                return {'list': tvShows, 'type': 'tv-shows'};
             }));
     }
 }

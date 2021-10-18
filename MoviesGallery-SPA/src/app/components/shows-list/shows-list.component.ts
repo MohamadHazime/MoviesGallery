@@ -18,7 +18,7 @@ export class ShowsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
-      this.showList = data[0];
+      this.showList = data[0].list;
     });
   }
 
